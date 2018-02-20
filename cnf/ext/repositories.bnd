@@ -1,5 +1,3 @@
--pluginpath: ${workspace}/cnf/gradle/bnd/biz.aQute.repository.jar
-
 -plugin:\
 		aQute.bnd.deployer.repository.LocalIndexedRepo;\
 		    name=Release;\
