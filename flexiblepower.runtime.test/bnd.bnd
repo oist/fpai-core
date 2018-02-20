@@ -2,7 +2,7 @@
 	${default-buildpath},\
 	flexiblepower.runtime;version=project,\
 	junit.osgi,\
-	flexiblepower.api.efi;version=latest
+	flexiblepower.api.efi;version=latest,\
 	org.apache.felix.scr
 
 Bundle-Version: 1.0.1.${qualifier}
