@@ -1,12 +1,19 @@
--buildpath:  \
+-buildpath: \
 	osgi.cmpn;version='[4.3,5)',\
 	osgi.core;version='[4.3,5)',\
-	junit.osgi;version='[3.8,4)',\
 	slf4j.api,\
 	biz.aQute.bnd.annotation,\
 	flexiblepower.api;version=latest,\
 	flexiblepower.ral;version=latest
 
+-testpath: \
+	junit:junit
 Bundle-Version: 1.0.0.${qualifier}
-Export-Package:  org.flexiblepower.efi*
+Export-Package: \
+	org.flexiblepower.efi,\
+	org.flexiblepower.efi.buffer;-noimport:=true,\
+	org.flexiblepower.efi.timeshifter;-noimport:=true,\
+	org.flexiblepower.efi.unconstrained;-noimport:=true,\
+	org.flexiblepower.efi.uncontrolled;-noimport:=true,\
+	org.flexiblepower.efi.util;-noimport:=true
 

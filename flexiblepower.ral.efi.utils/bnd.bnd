@@ -2,12 +2,13 @@
 	biz.aQute.bnd.annotation,\
 	flexiblepower.api;version=latest,\
 	flexiblepower.ral;version=latest,\
-	flexiblepower.ral.efi;version=latest,\
-	junit.osgi
+	flexiblepower.ral.efi;version=latest
 
+-testpath: \
+	junit:junit
 Bundle-Version: 1.0.0.${qualifier}
 Export-Package:  \
 	org.flexiblepower.api.efi.bufferhelper,\
 	org.flexiblepower.api.efi.unconstrainedhelper,\
-	org.flexiblepower.api.efi.commonhelper
+	org.flexiblepower.api.efi.commonhelper;-noimport:=true
 
