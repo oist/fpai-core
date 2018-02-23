@@ -1,6 +1,7 @@
 -buildpath: ${default-buildpath},\
 	org.apache.felix.http.servlet-api,\
 	org.apache.felix.webconsole,\
+	org.apache.commons.io;version=latest,\
 	com.google.gson,\
 	flexiblepower.ral;version=latest,\
 	flexiblepower.runtime;version=latest,\
