@@ -1,0 +1,23 @@
+Bundle-Version: 1.0.0.${qualifier}
+Test-Cases: \
+    org.flexiblepower.runtime.context.test.FlexiblePowerContextTester,\
+    org.flexiblepower.runtime.wiring.test.EndpointTester
+
+-runee: JavaSE-1.7
+-runfw: org.apache.felix.framework
+-runvm: -ea
+
+-runrequires: osgi.identity;filter:='(osgi.identity=flexiblepower.runtime.test)'
+-runbundles: \
+    flexiblepower.runtime.test;version=latest,\
+    biz.aQute.bnd.annotation,\
+    flexiblepower.runtime;version=latest,\
+    ch.qos.logback.classic,\
+    ch.qos.logback.core,\
+    org.apache.felix.configadmin,\
+    org.apache.felix.scr,\
+    org.apache.felix.metatype,\
+    org.slf4j.osgi-over-slf4j,\
+    slf4j.api,\
+    biz.aQute.junit,\
+    flexiblepower.api

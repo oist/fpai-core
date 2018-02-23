@@ -1,2 +1,0 @@
-/* skip "testOSGI" task */
-project.tasks.testOSGi.enabled = false

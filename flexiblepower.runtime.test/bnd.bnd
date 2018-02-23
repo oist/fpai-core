@@ -1,8 +1,6 @@
 -buildpath:  \
 	${default-buildpath},\
-	flexiblepower.runtime;version=project,\
-	junit.osgi,\
-	flexiblepower.api.efi;version=latest,\
+	junit:junit,\
 	org.apache.felix.scr
 
 Bundle-Version: 1.0.1.${qualifier}
@@ -21,8 +19,9 @@ Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase},${classes;ANNOT
 	org.apache.felix.metatype;version=latest,\
 	biz.aQute.bnd.annotation;version=latest,\
 	org.slf4j.osgi-over-slf4j;version=latest,\
-	slf4j.api;version=latest
--runee: JavaSE-1.6
+	slf4j.api;version=latest,\
+	biz.aQute.junit
+-runee: JavaSE-1.7
 -runfw: org.apache.felix.framework
 #-runtrace: true
 -runvm: -ea
