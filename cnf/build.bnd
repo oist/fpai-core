@@ -2,7 +2,8 @@ javac.source: 1.7
 javac.target: 1.7
 
 Bundle-Category: FlexiblePower Application Infrastructure
+
 qualifier: release-14-10
 
--baseline: *
--baselinerepo: FPAI Core Current Release
+-baseline: Release
+-baselinerepo: Release
