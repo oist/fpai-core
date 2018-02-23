@@ -3,7 +3,7 @@ javac.target: 1.7
 
 Bundle-Category: FlexiblePower Application Infrastructure
 
-qualifier: release-14-10
+qualifier: repo-OIST
 
 -baseline: Release
 -baselinerepo: Release
