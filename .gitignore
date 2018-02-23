@@ -4,6 +4,7 @@ cnf/db
 cnf/cache
 cnf/release
 .gradle
+.recommenders/
 bin
 bin_test
 generated
@@ -14,6 +15,7 @@ coverage.xml
 RemoteSystemsTempFiles
 reports
 build
+testdir/
 
 # Keep the projects list
 .metadata/*
@@ -33,5 +35,3 @@ deploy
 *.gwt.rpc
 *.nocache.js
 hosted.html
-/.metadata/
-/.recommenders/
