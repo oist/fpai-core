@@ -5,10 +5,11 @@
         local=${workspace}/cnf/release;\
         pretty=true
 -plugin.2.Local: \
-	aQute.lib.deployer.FileRepo;\
-		name=Flexiblepower Base (Local);\
-		location=${workspace}/../flexiblepower-base/cnf/release/;\
-		readonly=true
+    aQute.bnd.deployer.repository.LocalIndexedRepo;\
+		name="Flexiblepower Base (Local)";\
+		local=${workspace}/../flexiblepower-base/cnf/release;\
+        readonly=true;\
+        pretty=true
 
 -plugin.11.Build: \
 	aQute.bnd.repository.maven.provider.MavenBndRepository; \
