@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repository increment="1519894328000" name="Release" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.ral.efi.utils"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="e0f3d981d8371775dd1f5ec906884617fb6f461a00cf5f719a607365de1964dd"/>
+      <attribute name="url" value="flexiblepower.ral.efi.utils/flexiblepower.ral.efi.utils-1.0.0.jar"/>
+      <attribute name="size" type="Long" value="33175"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.ral.efi.utils"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.ral.efi.utils"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.api.efi.bufferhelper"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi.utils"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,javax.measure.unit,org.flexiblepower.api.efi.commonhelper,org.flexiblepower.efi.buffer,org.flexiblepower.efi.util,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.api.efi.unconstrainedhelper"/>
+      <attribute name="version" type="Version" value="1.1.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi.utils"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.efi.unconstrained,org.flexiblepower.efi.util,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.api.efi.commonhelper"/>
+      <attribute name="version" type="Version" value="1.1.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi.utils"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="org.flexiblepower.efi.util"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.quantity)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.unit)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.efi.buffer)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.efi.unconstrained)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.efi.util)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral.values)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.ral.efi"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="b87ce0d4bde619fcd12e23a9991e720b8751307116033a616f49da115004b063"/>
+      <attribute name="url" value="flexiblepower.ral.efi/flexiblepower.ral.efi-1.0.0.jar"/>
+      <attribute name="size" type="Long" value="114387"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.efi"/>
+      <attribute name="version" type="Version" value="1.0.1.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="org.flexiblepower.efi.buffer,org.flexiblepower.efi.timeshifter,org.flexiblepower.efi.unconstrained,org.flexiblepower.efi.uncontrolled,org.flexiblepower.messaging,org.flexiblepower.ral,org.flexiblepower.ral.messages,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.efi.buffer"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,javax.measure.unit,org.flexiblepower.efi.util,org.flexiblepower.ral.messages,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.efi.timeshifter"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.ral.messages,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.efi.unconstrained"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.efi.util,org.flexiblepower.ral.messages,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.efi.uncontrolled"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.ral.messages,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.efi.util"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.efi"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.quantity)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.unit)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral.messages)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral.values)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.ral.ext"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="9af73dd81bd75e56484add7e0743093d6c2ead67b15869d4cfc6de534c7e297a"/>
+      <attribute name="url" value="flexiblepower.ral.ext/flexiblepower.ral.ext-1.0.0.jar"/>
+      <attribute name="size" type="Long" value="35055"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.ext"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="org.flexiblepower.messaging,org.flexiblepower.ral,org.flexiblepower.ral.messages,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.drivers.battery"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.messaging,org.flexiblepower.ral"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.drivers.dishwasher"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="org.flexiblepower.messaging,org.flexiblepower.ral,org.flexiblepower.ral.values"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.drivers.refrigerator"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.messaging,org.flexiblepower.ral"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.drivers.uncontrolled"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral.ext"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,org.flexiblepower.messaging,org.flexiblepower.ral"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.quantity)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral.messages)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ral.values)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.ral"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="b46d0049bc6b2b0548febac2c0ae2b14eedec433711a24c5e7949326bf42ab45"/>
+      <attribute name="url" value="flexiblepower.ral/flexiblepower.ral-1.0.0.jar"/>
+      <attribute name="size" type="Long" value="89885"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.ral"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.ral"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="org.flexiblepower.messaging"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.messages"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ral.values"/>
+      <attribute name="version" type="Version" value="2.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ral"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <directive name="uses" value="javax.measure,javax.measure.quantity,javax.measure.unit"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.quantity)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.unit)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.runtime.simulation"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="ab1fa5a5b6fb663df587cf6e0d9e66b04819aa13ff1a03bc51e4ca68d0e6d694"/>
+      <attribute name="url" value="flexiblepower.runtime.simulation/flexiblepower.runtime.simulation-3.0.0.jar"/>
+      <attribute name="size" type="Long" value="90175"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.runtime.simulation"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.runtime.simulation"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.simulation.api"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.runtime.simulation"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="flexiblepower.context">
+      <attribute name="runtime" value="fpai"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.flexiblepower.messaging.ConnectionManager"/>
+      <directive name="uses" value="org.flexiblepower.messaging"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.flexiblepower.context.FlexiblePowerContext,org.flexiblepower.simulation.api.Simulation"/>
+      <directive name="uses" value="org.flexiblepower.context,org.flexiblepower.simulation.api"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.flexiblepower.ui.Widget"/>
+      <directive name="uses" value="org.flexiblepower.ui"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ui)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.annotation.metatype)(version&gt;=1.45.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.quantity)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.unit)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet.http)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.felix.webconsole)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.context)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.flexiblepower.runtime.context)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.simulation.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.osgi.service.cm.ConfigurationAdmin)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.messaging.Endpoint)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.context.FlexiblePowerContext)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.messaging.MessageListener)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.context.FlexiblePowerContext)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.simulation.api.Simulation)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.runtime.test"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.1.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="8f378abffd040db1ad4058cee925e7103e3824dcd9478358b792a1fb4d268088"/>
+      <attribute name="url" value="flexiblepower.runtime.test/flexiblepower.runtime.test-1.0.1.jar"/>
+      <attribute name="size" type="Long" value="53330"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.runtime.test"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.runtime.test"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.unit)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=junit.framework)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.context)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.runtime"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="139f30f2c3b95f73835a73a66c6adb07fe7816544381a85d0b84a0205ba73093"/>
+      <attribute name="url" value="flexiblepower.runtime/flexiblepower.runtime-3.0.0.jar"/>
+      <attribute name="size" type="Long" value="70923"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.runtime"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.runtime"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="flexiblepower.context">
+      <attribute name="runtime" value="fpai"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.flexiblepower.context.FlexiblePowerContext,java.util.concurrent.ScheduledExecutorService,org.flexiblepower.time.TimeService"/>
+      <directive name="uses" value="org.flexiblepower.context,java.util.concurrent,org.flexiblepower.time"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.flexiblepower.messaging.ConnectionManager"/>
+      <directive name="uses" value="org.flexiblepower.messaging"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.webconsole)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.annotation.metatype)(version&gt;=1.45.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.quantity)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.measure.unit)(version&gt;=5.0.0)(!(version&gt;=6.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.context)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.time)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.osgi.service.cm.ConfigurationAdmin)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.messaging.Endpoint)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.context.FlexiblePowerContext)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.messaging.MessageListener)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.ui.connectionspage"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="ded809225d800931595ec244176b3d34f9048c828c85a9b80347f185b843b121"/>
+      <attribute name="url" value="flexiblepower.ui.connectionspage/flexiblepower.ui.connectionspage-1.0.0.jar"/>
+      <attribute name="size" type="Long" value="155636"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.ui.connectionspage"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.ui.connectionspage"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.webconsole)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ui)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.annotation.metatype)(version&gt;=1.45.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.gson)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.io)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.messaging)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.messaging.ConnectionManager)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="flexiblepower.ui"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.2.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="b3a585fe7d5f573bf0ad4078abe493e3eab066271c4ca8366e46f7760815f169"/>
+      <attribute name="url" value="flexiblepower.ui/flexiblepower.ui-1.2.0.jar"/>
+      <attribute name="size" type="Long" value="922296"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="flexiblepower.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.2.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="flexiblepower.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.2.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.flexiblepower.ui"/>
+      <attribute name="version" type="Version" value="1.1.0.repoOIST-SNAPSHOT-201803010635"/>
+      <attribute name="bundle-symbolic-name" value="flexiblepower.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.2.0.repoOIST-SNAPSHOT-201803010635"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.flexiblepower.ui.Widget"/>
+      <attribute name="widget.ranking" value="1000000"/>
+      <attribute name="widget.name" value="dashboard"/>
+      <attribute name="widget.type" value="full"/>
+      <directive name="uses" value="org.flexiblepower.ui"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.osgi.service.http.HttpContext"/>
+      <attribute name="contextId" value="fps"/>
+      <directive name="uses" value="org.osgi.service.http"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.useradmin)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.annotation.metatype)(version&gt;=1.45.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.gson)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.flexiblepower.ui)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.http)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.osgi.service.http.HttpService)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.ui.Widget)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.flexiblepower.ui.Widget)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+</repository>
