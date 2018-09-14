@@ -1,7 +1,8 @@
--buildpath: osgi.cmpn;version='[4.3,5)',\
-	osgi.core;version='[4.3,5)',\
-	biz.aQute.bnd.annotation,\
-	slf4j.api;version='[1.7,2)',\
+-buildpath: \
+	osgi.cmpn;version=6.0.0,\
+	osgi.core;version=6.0.0,\
+	osgi.annotation;version='[6.0.0, 7.0.0)',\
+	slf4j.api;version='[1.7.25,1.7.26)',\
 	flexiblepower.api;version=latest,\
 	flexiblepower.ral;version=latest
 

@@ -22,40 +22,41 @@ import org.flexiblepower.messaging.MessageListener;
 import org.osgi.framework.Constants;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Modified;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.ConfigurationPolicy;
-import aQute.bnd.annotation.component.Deactivate;
-import aQute.bnd.annotation.component.Modified;
-import aQute.bnd.annotation.component.Reference;
-import aQute.bnd.annotation.metatype.Meta;
-
-@Component(immediate = true,
-           designate = ConnectionManagerImpl.Config.class,
-           configurationPolicy = ConfigurationPolicy.optional,
-           provide = ConnectionManager.class)
+@Component(immediate = true, configurationPolicy = ConfigurationPolicy.OPTIONAL)
+@Designate(ocd = ConnectionManagerImpl.Config.class)
 public class ConnectionManagerImpl implements ConnectionManager {
     private static final String KEY_ACTIVE_CONNECTIONS = "active.connections";
     private static final String KEY_AUTOCONNECT = "autoconnect";
     private static final Logger logger = LoggerFactory.getLogger(ConnectionManagerImpl.class);
 
-    @Meta.OCD(name = "Connection Manager Configuration",
-              description = "The ConnectionManager is responsible for wiring 2 ports for 2 different endpoints to each other."
-                            + "Warning: any modifications during runtime won't be activated right away. "
-                            + "If you want to connect something, use the special UI for that.")
+    @ObjectClassDefinition(name = "Connection Manager Configuration",
+                           description = "The ConnectionManager is responsible for wiring 2 ports for 2 different endpoints to each other."
+                                         + "Warning: any modifications during runtime won't be activated right away. "
+                                         + "If you want to connect something, use the special UI for that.")
     public interface Config {
-        @Meta.AD(name = KEY_ACTIVE_CONNECTIONS,
-                 deflt = "",
-                 description = "List of the active connections (e.g. endpoint:a-endpoint:b).",
-                 required = false)
+        @AttributeDefinition(name = KEY_ACTIVE_CONNECTIONS,
+                             defaultValue = "",
+                             description = "List of the active connections (e.g. endpoint:a-endpoint:b).",
+                             required = false)
         List<String> activeConnections();
 
-        @Meta.AD(name = KEY_AUTOCONNECT,
-                 deflt = "false",
-                 description = "When this is set to true, every new Endpoint will trigger an autoconnect call")
+        @AttributeDefinition(name = KEY_AUTOCONNECT,
+                             defaultValue = "false",
+                             description = "When this is set to true, every new Endpoint will trigger an autoconnect call")
         boolean autoconnect();
     }
 
@@ -219,7 +220,10 @@ public class ConnectionManagerImpl implements ConnectionManager {
         }
     }
 
-    @Reference(dynamic = true, multiple = true, optional = true, service = Endpoint.class, name = "endpoint")
+    @Reference(name = "endpoint",
+               service = Endpoint.class,
+               cardinality = ReferenceCardinality.MULTIPLE,
+               policy = ReferencePolicy.DYNAMIC)
     public synchronized void addEndpoint(Endpoint endpoint, Map<String, ?> properties) {
         try {
             String key = getKey(endpoint, properties);
@@ -301,11 +305,10 @@ public class ConnectionManagerImpl implements ConnectionManager {
         return correct;
     }
 
-    @Reference(dynamic = true,
-               multiple = true,
-               optional = true,
+    @Reference(name = "messageListener",
                service = MessageListener.class,
-               name = "messageListener")
+               cardinality = ReferenceCardinality.MULTIPLE,
+               policy = ReferencePolicy.DYNAMIC)
     public synchronized void addMessageListener(MessageListener messageListener) {
         messageListenerContainer.addMessageListener(messageListener);
     }
@@ -357,8 +360,10 @@ public class ConnectionManagerImpl implements ConnectionManager {
                                 EndpointPortImpl otherEnd = connection.getOtherEnd(port);
                                 // Or if the other is has a single cardinality and has other potential connections that
                                 // it can make
-                                if ((otherEnd.getCardinality() == Cardinality.SINGLE && otherEnd.getPotentialConnections()
-                                                                                                .size() == 1) || otherEnd.getCardinality() == Cardinality.MULTIPLE) {
+                                if ((otherEnd.getCardinality() == Cardinality.SINGLE
+                                     && otherEnd.getPotentialConnections()
+                                                .size() == 1)
+                                    || otherEnd.getCardinality() == Cardinality.MULTIPLE) {
                                     connection.connect();
                                     logger.debug("Autoconnected [" + port + "] to [" + otherEnd + "]");
                                 }

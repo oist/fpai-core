@@ -12,29 +12,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.http.HttpContext;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.AttributeType;
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.osgi.service.useradmin.UserAdmin;
 import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.ConfigurationPolicy;
-import aQute.bnd.annotation.component.Deactivate;
-import aQute.bnd.annotation.metatype.Meta;
-
-@Component(provide = HttpContext.class,
-           properties = "contextId=fps",
-           designate = UserSessionHttpContext.Config.class,
-           configurationPolicy = ConfigurationPolicy.optional,
+@Component(service = HttpContext.class,
+           property = { "contextId=fps" },
+           configurationPolicy = ConfigurationPolicy.OPTIONAL,
            immediate = true)
+@Designate(ocd = UserSessionHttpContext.Config.class)
 public class UserSessionHttpContext implements HttpContext {
     private final static Logger logger = LoggerFactory.getLogger(UserSessionHttpContext.class);
 
-    @Meta.OCD(name = "User session management configuration")
+    @ObjectClassDefinition(name = "User session management configuration")
     public interface Config {
-        @Meta.AD(deflt = "false", required = false)
+        @AttributeDefinition(type = AttributeType.BOOLEAN, defaultValue = "false", required = false)
         boolean isDisabled();
     }
 

@@ -1,7 +1,6 @@
 package org.flexiblepower.runtime.ui.connectionspage;
 
 import java.util.Hashtable;
-import java.util.Map;
 
 import javax.servlet.Servlet;
 
@@ -9,25 +8,32 @@ import org.flexiblepower.messaging.ConnectionManager;
 import org.flexiblepower.ui.Widget;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.AttributeType;
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.ConfigurationPolicy;
-import aQute.bnd.annotation.component.Deactivate;
-import aQute.bnd.annotation.component.Reference;
-import aQute.bnd.annotation.metatype.Configurable;
-import aQute.bnd.annotation.metatype.Meta;
-
-@Component(designate = ConnectionsPage.Config.class, configurationPolicy = ConfigurationPolicy.optional)
+@Component(configurationPolicy = ConfigurationPolicy.OPTIONAL)
+@Designate(ocd = ConnectionsPage.Config.class)
 public class ConnectionsPage {
-    @Meta.OCD(description = "Configuration for the ConnectionManager widgets",
-              name = "ConnectionManager UI Configuration")
-    public interface Config {
-        @Meta.AD(deflt = "true", description = "Should the plugin be shown in the felix dashboard?", required = false)
-        boolean felixPluginActive();
+    @ObjectClassDefinition(description = "Configuration for the ConnectionManager widgets",
+                           name = "ConnectionManager UI Configuration")
+    public @interface Config {
+        @AttributeDefinition(type = AttributeType.BOOLEAN,
+                             description = "Should the plugin be shown in the felix dashboard?",
+                             required = false)
+        boolean felixPluginActive() default true;
 
-        @Meta.AD(deflt = "false", description = "Should the plugin be shown in the FPAI dashboard?", required = false)
-        boolean dashboardWidgetActive();
+        @AttributeDefinition(type = AttributeType.BOOLEAN,
+                             defaultValue = "false",
+                             description = "Should the plugin be shown in the FPAI dashboard?",
+                             required = false)
+        boolean dashboardWidgetActive() default true;
     }
 
     private ConnectionManager connectionManager;
@@ -40,8 +46,7 @@ public class ConnectionsPage {
     }
 
     @Activate
-    public void activate(BundleContext context, Map<String, Object> properties) {
-        Config config = Configurable.createConfigurable(Config.class, properties);
+    public void activate(BundleContext context, final Config config) {
 
         if (config.dashboardWidgetActive()) {
             try {

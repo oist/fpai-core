@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.felix.webconsole.SimpleWebConsolePlugin;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Deactivate;
+//import aQute.bnd.annotation.component.Activate;
+//import aQute.bnd.annotation.component.Component;
+//import aQute.bnd.annotation.component.Deactivate;
 
 @Component(immediate = true)
 public class SchedulingServlet extends SimpleWebConsolePlugin {

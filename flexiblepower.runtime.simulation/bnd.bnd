@@ -12,6 +12,5 @@ Export-Package: org.flexiblepower.simulation.api
 Import-Package: \
 	org.flexiblepower.ui;resolution:=optional,\
 	*
-Service-Component: *
 
 Provide-Capability: flexiblepower.context; runtime=fpai

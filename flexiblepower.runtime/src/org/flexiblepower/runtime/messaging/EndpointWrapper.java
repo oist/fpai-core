@@ -106,7 +106,8 @@ public class EndpointWrapper implements ManagedEndpoint, Closeable {
                                 port.cardinality());
                 }
             } else {
-                logger.error("Implementation of port {} is defined multiple times! Possibly undefined behavior can be expected.",
+                logger.error("Implementation of port {} is defined multiple times! Possibly undefined behavior can be expected. "
+                             + port.name(),
                              port.name());
             }
         }

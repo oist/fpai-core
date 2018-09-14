@@ -12,10 +12,11 @@ import org.flexiblepower.ui.Widget;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import aQute.bnd.annotation.component.Reference;
 
 public abstract class AbstractWidgetManager {
     private static final Logger logger = LoggerFactory.getLogger(AbstractWidgetManager.class);
@@ -23,10 +24,12 @@ public abstract class AbstractWidgetManager {
     private final WidgetRegistry registry = new WidgetRegistry();
     private final Map<Widget, ServiceRegistration<Servlet>> serviceRegistrations = new HashMap<Widget, ServiceRegistration<Servlet>>();
 
-    @Reference(dynamic = true, multiple = true, optional = true, target = "(" + WidgetRegistry.KEY_TYPE
-                                                                          + "="
-                                                                          + WidgetRegistry.VALUE_TYPE_FULL
-                                                                          + ")")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE,
+               policy = ReferencePolicy.DYNAMIC,
+               target = "(" + WidgetRegistry.KEY_TYPE
+                        + "="
+                        + WidgetRegistry.VALUE_TYPE_FULL
+                        + ")")
     public void addWidget(Widget widget, Map<String, Object> properties) {
         logger.trace("Entering addWidget, widget = {}, properties = {}", widget, properties);
         BundleContext context = FrameworkUtil.getBundle(getClass()).getBundleContext();

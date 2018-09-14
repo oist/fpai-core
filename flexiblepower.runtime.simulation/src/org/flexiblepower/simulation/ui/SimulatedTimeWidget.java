@@ -6,9 +6,8 @@ import java.util.Locale;
 import org.flexiblepower.context.FlexiblePowerContext;
 import org.flexiblepower.simulation.api.Simulation;
 import org.flexiblepower.ui.Widget;
-
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 @Component
 public class SimulatedTimeWidget implements Widget {

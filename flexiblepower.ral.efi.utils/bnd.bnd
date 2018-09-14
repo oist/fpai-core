@@ -1,5 +1,6 @@
--buildpath:  \
-	biz.aQute.bnd.annotation,\
+-buildpath: \
+	osgi.cmpn;version=6.0.0,\
+	osgi.annotation;version='[6.0.0, 7.0.0)',\
 	flexiblepower.api;version=latest,\
 	flexiblepower.ral;version=latest,\
 	flexiblepower.ral.efi;version=latest

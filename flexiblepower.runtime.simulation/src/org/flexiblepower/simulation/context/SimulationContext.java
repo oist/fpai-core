@@ -6,12 +6,11 @@ import org.flexiblepower.context.FlexiblePowerContext;
 import org.flexiblepower.scheduling.AbstractScheduler;
 import org.flexiblepower.scheduling.Job;
 import org.flexiblepower.simulation.api.Simulation;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Deactivate;
-
-@Component(provide = { FlexiblePowerContext.class, Simulation.class })
+@Component(service = { FlexiblePowerContext.class, Simulation.class })
 public class SimulationContext extends AbstractScheduler implements Simulation {
 
     private final SimulationClock simulationClock = new SimulationClock();

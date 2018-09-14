@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Hashtable;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -15,19 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.flexiblepower.runtime.ui.server.widgets.AbstractWidgetManager;
 import org.flexiblepower.runtime.ui.server.widgets.WidgetRegistration;
-import org.flexiblepower.runtime.ui.server.widgets.WidgetRegistry;
-import org.flexiblepower.ui.Widget;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Deactivate;
-import aQute.bnd.annotation.component.Reference;
 
 @Component(immediate = true)
 public class PageManager extends AbstractWidgetManager {
@@ -62,7 +58,7 @@ public class PageManager extends AbstractWidgetManager {
 
             @Override
             protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-                                                                                    IOException {
+                                                                                     IOException {
                 if (req.getPathInfo() == null || req.getPathInfo().isEmpty() || "/".equals(req.getPathInfo())) {
                     resp.sendRedirect("/dashboard");
                 } else {
@@ -121,12 +117,13 @@ public class PageManager extends AbstractWidgetManager {
         return result;
     }
 
-    @Override
-    @Reference(dynamic = true, multiple = true, optional = true,
-               target = "(" + WidgetRegistry.KEY_TYPE + "=" + WidgetRegistry.VALUE_TYPE_FULL + ")")
-    public void addWidget(Widget widget, Map<String, Object> properties) {
-        super.addWidget(widget, properties);
-    }
+    // @Override
+    // @Reference(cardinality = ReferenceCardinality.MULTIPLE,
+    // policy = ReferencePolicy.DYNAMIC,
+    // target = "(" + WidgetRegistry.KEY_TYPE + "=" + WidgetRegistry.VALUE_TYPE_FULL + ")")
+    // public void addWidget(Widget widget, Map<String, Object> properties) {
+    // super.addWidget(widget, properties);
+    // }
 
     @Override
     public HttpServlet createServlet(WidgetRegistration registration) {

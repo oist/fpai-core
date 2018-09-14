@@ -9,7 +9,6 @@
 
 Bundle-Version: 1.0.0.${qualifier}
 Private-Package: org.flexiblepower.runtime.ui.connectionspage
-Service-Component: org.flexiblepower.runtime.ui.connectionspage.*
 Import-Package: \
 	org.apache.felix.webconsole;resolution:=optional,\
 	org.flexiblepower.ui;resolution:=optional,\

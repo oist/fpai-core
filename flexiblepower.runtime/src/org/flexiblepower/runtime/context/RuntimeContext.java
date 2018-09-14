@@ -21,14 +21,15 @@ import org.flexiblepower.scheduling.AbstractScheduler;
 import org.flexiblepower.time.TimeService;
 import org.osgi.framework.Bundle;
 import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.ServiceScope;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Deactivate;
-
-@Component(servicefactory = true, provide = { FlexiblePowerContext.class,
-                                             ScheduledExecutorService.class,
-                                             TimeService.class })
+@Component(scope = ServiceScope.BUNDLE,
+           service = { FlexiblePowerContext.class,
+                       ScheduledExecutorService.class,
+                       TimeService.class })
 public class RuntimeContext extends AbstractScheduler implements ScheduledExecutorService, TimeService {
     private Bundle bundle;
 
@@ -93,8 +94,8 @@ public class RuntimeContext extends AbstractScheduler implements ScheduledExecut
 
     @Override
     public <T>
-            List<Future<T>>
-            invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException {
+           List<Future<T>>
+           invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException {
         List<Future<T>> list = new ArrayList<Future<T>>(tasks.size());
         for (Callable<T> task : tasks) {
             list.add(schedule(task, timeout, unit));
@@ -109,8 +110,8 @@ public class RuntimeContext extends AbstractScheduler implements ScheduledExecut
 
     @Override
     public <T>
-            T
-            invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException,
+           T
+           invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException,
                                                                                            ExecutionException,
                                                                                            TimeoutException {
         throw new UnsupportedOperationException("The RuntimeContext does not support this functionality");

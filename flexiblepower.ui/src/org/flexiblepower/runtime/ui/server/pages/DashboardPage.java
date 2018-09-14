@@ -12,51 +12,61 @@ import org.flexiblepower.runtime.ui.server.widgets.AbstractWidgetManager;
 import org.flexiblepower.runtime.ui.server.widgets.WidgetRegistration;
 import org.flexiblepower.runtime.ui.server.widgets.WidgetRegistry;
 import org.flexiblepower.ui.Widget;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.AttributeType;
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+import org.osgi.service.metatype.annotations.Option;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import aQute.bnd.annotation.component.Activate;
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.ConfigurationPolicy;
-import aQute.bnd.annotation.component.Reference;
-import aQute.bnd.annotation.metatype.Configurable;
-import aQute.bnd.annotation.metatype.Meta.AD;
-import aQute.bnd.annotation.metatype.Meta.OCD;
-
-@Component(designate = DashboardPage.Config.class,
-           configurationPolicy = ConfigurationPolicy.optional,
+@Component(configurationPolicy = ConfigurationPolicy.OPTIONAL,
            immediate = true,
-           provide = { Widget.class },
-           properties = { "widget.type=full", "widget.name=dashboard", "widget.ranking=1000000" })
+           service = { Widget.class },
+           property = { "widget.type=full", "widget.name=dashboard", "widget.ranking:Integer=1000000" })
+@Designate(ocd = DashboardPage.Config.class)
 public class DashboardPage extends AbstractWidgetManager implements Widget {
     private static final Logger logger = LoggerFactory.getLogger(DashboardPage.class);
 
-    @OCD(description = "Configuration of the Dashboard Servlet", name = "Dashboard Configuration")
-    public interface Config {
-        @AD(deflt = "31536000",
-            description = "Expiration time of static content (in seconds)",
-            name = "Expiration time",
-            optionLabels = { "No caching", "A minute", "An hour", "A day", "A year" },
-            optionValues = { "0", "60", "3600", "86400", "31536000" },
-            required = false)
-        long expireTime();
+    @ObjectClassDefinition(description = "Configuration of the Dashboard Servlet", name = "Dashboard Configuration")
+    public @interface Config {
+        @AttributeDefinition(type = AttributeType.LONG,
+                             description = "Expiration time of static content (in seconds)",
+                             name = "Expiration time",
+                             options = {
+                                         @Option(label = "No caching", value = "0"),
+                                         @Option(label = "A minute", value = "60"),
+                                         @Option(label = "An hour", value = "3600"),
+                                         @Option(label = "A day", value = "86400"),
+                                         @Option(label = "A year", value = "31536000")
+                             },
+                             required = false)
+        long expireTime() default 31536000;
     }
 
     private long expirationTime = 31536000000L;
 
     @Activate
-    public void activate(Map<String, Object> properties) {
-        logger.trace("Entering activate, properties = " + properties);
-        Config config = Configurable.createConfigurable(Config.class, properties);
+    public void activate(final Config config) {
+        // TODO: pretty print a configuration properties
+        logger.trace("Entering activate, properties = " + config);
         expirationTime = config.expireTime() * 1000;
         logger.trace("Leaving activate");
     }
 
     @Override
-    @Reference(dynamic = true, multiple = true, optional = true, target = "(!(" + WidgetRegistry.KEY_TYPE
-                                                                          + "="
-                                                                          + WidgetRegistry.VALUE_TYPE_FULL
-                                                                          + "))")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE,
+               policy = ReferencePolicy.DYNAMIC,
+               target = "(!(" + WidgetRegistry.KEY_TYPE
+                        + "="
+                        + WidgetRegistry.VALUE_TYPE_FULL
+                        + "))")
     public synchronized void addWidget(Widget widget, Map<String, Object> properties) {
         super.addWidget(widget, properties);
         notifyAll();

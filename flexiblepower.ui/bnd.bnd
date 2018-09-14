@@ -6,7 +6,6 @@ Bundle-Version: 1.2.0.${qualifier}
 Private-Package: org.flexiblepower.runtime.ui.*
 Export-Package: org.flexiblepower.ui
 
-Service-Component: *
 Import-Package:  \
 	org.osgi.service.useradmin;resolution:=optional,\
 	*
