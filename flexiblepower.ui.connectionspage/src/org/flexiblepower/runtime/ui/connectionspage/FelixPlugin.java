@@ -3,6 +3,7 @@ package org.flexiblepower.runtime.ui.connectionspage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.nio.charset.Charset;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -91,7 +92,7 @@ public class FelixPlugin extends AbstractWebConsolePlugin {
             resp.setContentType("application/javascript");
         }
 
-        IOUtils.copy(url.openStream(), resp.getWriter());
+        IOUtils.copy(url.openStream(), resp.getWriter(), Charset.defaultCharset());
         logger.debug("Served from url: " + url);
     }
 }

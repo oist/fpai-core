@@ -15,7 +15,6 @@ import javax.measure.quantity.Temperature;
 import javax.measure.unit.NonSI;
 import javax.measure.unit.SI;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import org.flexiblepower.api.efi.bufferhelper.Buffer;
@@ -285,12 +284,12 @@ public class BufferTest extends TestCase {
     }
 
     public void testOneElectricalActuator() {
-        Assert.assertTrue(fullBuffer.getElectricalActuators().size() == 1);
+        assertTrue(fullBuffer.getElectricalActuators().size() == 1);
     }
 
     public void testGetReachableRunningModes() {
         for (BufferActuator<?> a : incompleteBuffer.getElectricalActuators()) {
-            Assert.assertTrue(a.getReachableRunningModes(new Date()).isEmpty());
+            assertTrue(a.getReachableRunningModes(new Date()).isEmpty());
         }
 
         fullBuffer.processSystemDescription(bsd);
@@ -300,27 +299,27 @@ public class BufferTest extends TestCase {
         BufferActuator<Temperature> a1 = fullBuffer.getActuatorById(1);
         Set<Integer> reachableRunningModes = a1.getReachableRunningModeIds(new Date());
         // Minimum Off timer restricts actuator 1 from going to rm 2 (on).
-        Assert.assertTrue(reachableRunningModes.contains(a1.getCurrentRunningModeId()));
-        Assert.assertEquals(a1.getCurrentRunningModeId(), 1);
-        Assert.assertFalse(reachableRunningModes.contains(2));
+        assertTrue(reachableRunningModes.contains(a1.getCurrentRunningModeId()));
+        assertEquals(a1.getCurrentRunningModeId(), 1);
+        assertFalse(reachableRunningModes.contains(2));
 
         // Also in 4 minutes from now, the running mode with id 2 should not be reachable.
         Calendar cal2 = Calendar.getInstance();
         cal2.add(Calendar.MINUTE, 4);
-        Assert.assertFalse(a1.getReachableRunningModeIds(cal2.getTime()).contains(2));
+        assertFalse(a1.getReachableRunningModeIds(cal2.getTime()).contains(2));
 
         // In 6 minutes from now, the running mode with id 2 should be reachable.
         Calendar cal3 = Calendar.getInstance();
         cal3.add(Calendar.MINUTE, 6);
 
-        Assert.assertTrue(a1.getReachableRunningModeIds(cal3.getTime()).contains(2));
+        assertTrue(a1.getReachableRunningModeIds(cal3.getTime()).contains(2));
 
         // Actuator 2 has no running timers so should have both runningmodes as options.
         BufferActuator<Temperature> a2 = fullBuffer.getActuatorById(2);
         Set<Integer> reachableRunningModes2 = a2.getReachableRunningModeIds(new Date());
-        Assert.assertTrue(reachableRunningModes2.contains(a2.getCurrentRunningModeId()));
-        Assert.assertEquals(a2.getCurrentRunningModeId(), 2);
-        Assert.assertTrue(reachableRunningModes2.contains(1));
+        assertTrue(reachableRunningModes2.contains(a2.getCurrentRunningModeId()));
+        assertEquals(a2.getCurrentRunningModeId(), 2);
+        assertTrue(reachableRunningModes2.contains(1));
     }
 
     public void testGetPossibleDemands() {
@@ -329,59 +328,59 @@ public class BufferTest extends TestCase {
         BufferActuator<Temperature> a1 = fullBuffer.getActuatorById(1);
         List<Measurable<Power>> demandList = a1.getPossibleDemands(new Date(), .2);
         // First actuator is in must off state.
-        Assert.assertTrue(demandList.size() == 1);
-        Assert.assertEquals(demandList.get(0).doubleValue(SI.WATT), 0d);
+        assertTrue(demandList.size() == 1);
+        assertEquals(demandList.get(0).doubleValue(SI.WATT), 0d);
         BufferActuator<Temperature> a2 = fullBuffer.getActuatorById(2);
         List<Measurable<Power>> demandList2 = a2.getPossibleDemands(new Date(), .2);
         // Second actuator should have two possible states.
-        Assert.assertTrue(demandList2.size() == 2);
+        assertTrue(demandList2.size() == 2);
         List<Double> demands = new ArrayList<Double>();
         demands.add(demandList2.get(0).doubleValue(SI.WATT));
         demands.add(demandList2.get(1).doubleValue(SI.WATT));
-        Assert.assertTrue(demands.contains(0d));
-        Assert.assertTrue(demands.contains(1000d));
+        assertTrue(demands.contains(0d));
+        assertTrue(demands.contains(1000d));
     }
 
     public void testReceivedMessages() {
-        Assert.assertFalse(fullBuffer.hasReceivedSystemDescription());
-        Assert.assertFalse(fullBuffer.hasReceivedStateUpdate());
+        assertFalse(fullBuffer.hasReceivedSystemDescription());
+        assertFalse(fullBuffer.hasReceivedStateUpdate());
 
         // Ignore state update if system description is not in yet.
         fullBuffer.processStateUpdate(bsu);
-        Assert.assertFalse(fullBuffer.hasReceivedSystemDescription());
-        Assert.assertFalse(fullBuffer.hasReceivedStateUpdate());
+        assertFalse(fullBuffer.hasReceivedSystemDescription());
+        assertFalse(fullBuffer.hasReceivedStateUpdate());
 
         fullBuffer.processSystemDescription(bsd);
-        Assert.assertTrue(fullBuffer.hasReceivedSystemDescription());
+        assertTrue(fullBuffer.hasReceivedSystemDescription());
         fullBuffer.processStateUpdate(bsu);
-        Assert.assertTrue(fullBuffer.hasReceivedStateUpdate());
+        assertTrue(fullBuffer.hasReceivedStateUpdate());
     }
 
     public void testFillLevelCalculations() {
         fullBuffer.processSystemDescription(bsd);
         fullBuffer.processStateUpdate(bsu);
-        Assert.assertEquals(0.9, fullBuffer.getCurrentFillFraction());
+        assertEquals(0.9, fullBuffer.getCurrentFillFraction());
         final BufferStateUpdate<Temperature> bsu2 = BufferTest.constructBSU(br, 50);
         fullBuffer.processStateUpdate(bsu2);
-        Assert.assertEquals(1d, fullBuffer.getCurrentFillFraction());
+        assertEquals(1d, fullBuffer.getCurrentFillFraction());
         final BufferStateUpdate<Temperature> bsu3 = BufferTest.constructBSU(br, 0);
         fullBuffer.processStateUpdate(bsu3);
-        Assert.assertEquals(0d, fullBuffer.getCurrentFillFraction());
+        assertEquals(0d, fullBuffer.getCurrentFillFraction());
         final BufferStateUpdate<Temperature> bsu4 = BufferTest.constructBSU(br, -1);
         fullBuffer.processStateUpdate(bsu4);
-        Assert.assertEquals(-0.02d, fullBuffer.getCurrentFillFraction());
+        assertEquals(-0.02d, fullBuffer.getCurrentFillFraction());
 
-        Assert.assertEquals(50d, fullBuffer.getMaximumFillLevel());
-        Assert.assertEquals(0d, fullBuffer.getMinimumFillLevel());
-        Assert.assertEquals(-1d, fullBuffer.getCurrentFillLevel().doubleValue(fullBuffer.getUnit()));
-        Assert.assertEquals(SI.CELSIUS, fullBuffer.getUnit());
+        assertEquals(50d, fullBuffer.getMaximumFillLevel());
+        assertEquals(0d, fullBuffer.getMinimumFillLevel());
+        assertEquals(-1d, fullBuffer.getCurrentFillLevel().doubleValue(fullBuffer.getUnit()));
+        assertEquals(SI.CELSIUS, fullBuffer.getUnit());
     }
 
     public void testNewSysDescription() {
         fullBuffer.processSystemDescription(bsd);
         fullBuffer.processStateUpdate(bsu);
-        Assert.assertEquals(0.9, fullBuffer.getCurrentFillFraction());
+        assertEquals(0.9, fullBuffer.getCurrentFillFraction());
         fullBuffer.processSystemDescription(constructNewBSD(br));
-        Assert.assertFalse(fullBuffer.hasReceivedStateUpdate());
+        assertFalse(fullBuffer.hasReceivedStateUpdate());
     }
 }

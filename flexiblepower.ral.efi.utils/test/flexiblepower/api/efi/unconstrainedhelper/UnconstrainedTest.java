@@ -12,7 +12,6 @@ import javax.measure.quantity.Power;
 import javax.measure.unit.NonSI;
 import javax.measure.unit.SI;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import org.flexiblepower.api.efi.unconstrainedhelper.Unconstrained;
@@ -44,7 +43,7 @@ public class UnconstrainedTest extends TestCase {
     }
 
     public void testGetReachableRunningModes() {
-        Assert.assertTrue(incompleteUnconstrained.getReachableRunningModes(new Date()).isEmpty());
+        assertTrue(incompleteUnconstrained.getReachableRunningModes(new Date()).isEmpty());
 
         fullUnconstrained.processSystemDescription(usd);
         // Unconstrained device is off (rm 1) and in minimum off time for 5 minutes.
@@ -52,22 +51,22 @@ public class UnconstrainedTest extends TestCase {
 
         Set<Integer> reachableRunningModes = fullUnconstrained.getReachableRunningModeIds(new Date());
         // Minimum Off timer restricts unconstrained from going to rm 2 (on).
-        Assert.assertTrue(reachableRunningModes.contains(fullUnconstrained.getCurrentRunningModeId()));
-        Assert.assertEquals(1, fullUnconstrained.getCurrentRunningModeId());
-        Assert.assertFalse(reachableRunningModes.contains(2));
+        assertTrue(reachableRunningModes.contains(fullUnconstrained.getCurrentRunningModeId()));
+        assertEquals(1, fullUnconstrained.getCurrentRunningModeId());
+        assertFalse(reachableRunningModes.contains(2));
 
         // Also in 4 minutes from now, the running mode with id 2 should not be reachable.
         Calendar cal2 = Calendar.getInstance();
         cal2.add(Calendar.MINUTE, 4);
-        Assert.assertTrue(fullUnconstrained.getReachableRunningModeIds(cal2.getTime()).contains(1));
-        Assert.assertFalse(fullUnconstrained.getReachableRunningModeIds(cal2.getTime()).contains(2));
+        assertTrue(fullUnconstrained.getReachableRunningModeIds(cal2.getTime()).contains(1));
+        assertFalse(fullUnconstrained.getReachableRunningModeIds(cal2.getTime()).contains(2));
 
         // In 6 minutes from now, the running mode with id 2 should be reachable.
         Calendar cal3 = Calendar.getInstance();
         cal3.add(Calendar.MINUTE, 6);
 
-        Assert.assertTrue(fullUnconstrained.getReachableRunningModeIds(cal3.getTime()).contains(2));
-        Assert.assertTrue(fullUnconstrained.getReachableRunningModeIds(cal3.getTime()).contains(1));
+        assertTrue(fullUnconstrained.getReachableRunningModeIds(cal3.getTime()).contains(2));
+        assertTrue(fullUnconstrained.getReachableRunningModeIds(cal3.getTime()).contains(1));
     }
 
     public void testGetPossibleDemands() {
@@ -75,23 +74,23 @@ public class UnconstrainedTest extends TestCase {
         fullUnconstrained.processStateUpdate(usu);
         List<Measurable<Power>> demandList = fullUnconstrained.getPossibleDemands(new Date());
         // Unconstrained device is in must off state.
-        Assert.assertTrue(demandList.size() == 1);
-        Assert.assertEquals(0d, demandList.get(0).doubleValue(SI.WATT));
+        assertTrue(demandList.size() == 1);
+        assertEquals(0d, demandList.get(0).doubleValue(SI.WATT));
     }
 
     public void testReceivedMessages() {
-        Assert.assertFalse(fullUnconstrained.hasReceivedSystemDescription());
-        Assert.assertFalse(fullUnconstrained.hasReceivedStateUpdate());
+        assertFalse(fullUnconstrained.hasReceivedSystemDescription());
+        assertFalse(fullUnconstrained.hasReceivedStateUpdate());
 
         // Ignore state update if system description is not in yet.
         fullUnconstrained.processStateUpdate(usu);
-        Assert.assertFalse(fullUnconstrained.hasReceivedSystemDescription());
-        Assert.assertFalse(fullUnconstrained.hasReceivedStateUpdate());
+        assertFalse(fullUnconstrained.hasReceivedSystemDescription());
+        assertFalse(fullUnconstrained.hasReceivedStateUpdate());
 
         fullUnconstrained.processSystemDescription(usd);
-        Assert.assertTrue(fullUnconstrained.hasReceivedSystemDescription());
+        assertTrue(fullUnconstrained.hasReceivedSystemDescription());
         fullUnconstrained.processStateUpdate(usu);
-        Assert.assertTrue(fullUnconstrained.hasReceivedStateUpdate());
+        assertTrue(fullUnconstrained.hasReceivedStateUpdate());
     }
 
     /**

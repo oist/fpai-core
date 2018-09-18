@@ -19,14 +19,14 @@ public class TimerModelTest extends TestCase {
 
     public void testTimerCreation() {
         Timer source = new Timer(0, "minOn", Measure.valueOf(100, SI.SECOND));
-        Timer source2 = new Timer(1, "minOff", Measure.valueOf(10, SI.SECOND));
+        //Timer source2 = new Timer(1, "minOff", Measure.valueOf(10, SI.SECOND));
         TimerModel timerOn = new TimerModel(source);
         assertFalse(timerOn.isBlockingAt(new Date()));
         timerOn.updateFinishedAt(null);
         assertFalse(timerOn.isBlockingAt(new Date()));
 
         Calendar moment = Calendar.getInstance();
-        Date now = moment.getTime();
+        //Date now = moment.getTime();
         moment.add(Calendar.SECOND, 30);
         Date inHalfAMinute = moment.getTime();
         moment.add(Calendar.SECOND, 30);
