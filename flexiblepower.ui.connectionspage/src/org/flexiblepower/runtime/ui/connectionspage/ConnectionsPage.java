@@ -30,7 +30,6 @@ public class ConnectionsPage {
         boolean felixPluginActive() default true;
 
         @AttributeDefinition(type = AttributeType.BOOLEAN,
-                             defaultValue = "false",
                              description = "Should the plugin be shown in the FPAI dashboard?",
                              required = false)
         boolean dashboardWidgetActive() default true;

@@ -47,17 +47,15 @@ public class ConnectionManagerImpl implements ConnectionManager {
                            description = "The ConnectionManager is responsible for wiring 2 ports for 2 different endpoints to each other."
                                          + "Warning: any modifications during runtime won't be activated right away. "
                                          + "If you want to connect something, use the special UI for that.")
-    public interface Config {
+    public @interface Config {
         @AttributeDefinition(name = KEY_ACTIVE_CONNECTIONS,
-                             defaultValue = "",
                              description = "List of the active connections (e.g. endpoint:a-endpoint:b).",
                              required = false)
-        List<String> activeConnections();
+        String[] activeConnections() default {};
 
         @AttributeDefinition(name = KEY_AUTOCONNECT,
-                             defaultValue = "false",
                              description = "When this is set to true, every new Endpoint will trigger an autoconnect call")
-        boolean autoconnect();
+        boolean autoconnect() default false;
     }
 
     private final Map<String, Object> otherProperties;

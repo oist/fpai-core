@@ -35,9 +35,9 @@ public class UserSessionHttpContext implements HttpContext {
     private final static Logger logger = LoggerFactory.getLogger(UserSessionHttpContext.class);
 
     @ObjectClassDefinition(name = "User session management configuration")
-    public interface Config {
-        @AttributeDefinition(type = AttributeType.BOOLEAN, defaultValue = "false", required = false)
-        boolean isDisabled();
+    public @interface Config {
+        @AttributeDefinition(type = AttributeType.BOOLEAN, required = false)
+        boolean isDisabled() default false;
     }
 
     private final SessionManager sessionManager;
